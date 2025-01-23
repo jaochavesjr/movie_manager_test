@@ -1,0 +1,37 @@
+<h1 class="mb-4">Search Movies</h1>
+<%= form_with url: search_path, method: :get, local: true, class: "mb-4" do |form| %>
+  <div class="input-group">
+    <%= form.text_field :query, class: "form-control", placeholder: "Search for a movie...", value: params[:query] %>
+    <button class="btn btn-primary" type="submit">Search</button>
+  </div>
+<% end %>
+<% if @movies.present? %>
+  <h2 class="mb-3">Results</h2>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @movies.each do |movie| %>
+        <tr>
+          <td><%= movie.title %> (<%= movie.year %>)</td>
+          <td>
+            <%= form_with(url: movies_path, method: :post, local: true) do %>
+              <%= hidden_field_tag 'movie[title]', movie.title %>
+              <%= hidden_field_tag 'movie[year]', movie.year %>
+              <%= hidden_field_tag 'movie[genre]', movie.genre %>
+              <%= hidden_field_tag 'movie[director]', movie.director %>
+              <%= hidden_field_tag 'movie[plot]', movie.plot %>
+              <%= submit_tag "Add to Favorites", class: "btn btn-success btn-sm" %>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% elsif params[:query].present? %>
+  <p class="text-danger">No movies found for "<%= params[:query] %>".</p>
+<% end %>
