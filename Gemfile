@@ -33,7 +33,7 @@ gem "kamal", require: false
 gem "thruster", require: false
 
 # conecta com o banco de dados mongodb
-gem "mongoid", "~> 9.0", ">= 9.0.4"
+gem "mongoid", "~> 9.0"
 
 # httparty
 gem "httparty"
