@@ -26,5 +26,5 @@ docker-compose up --build
 
 # Passo 5: Acessar a Aplicação
 # Após iniciar o projeto, abra o navegador e acesse:
-# http://localhost:3000
+http://localhost:3000
 
