@@ -1,0 +1,12 @@
+<h1><%= @movie.title %></h1>
+<div class="row">
+  <div class="col-md-8">
+    <p><strong>Year:</strong> <%= @movie.year %></p>
+    <p><strong>Genre:</strong> <%= @movie.genre %></p>
+    <p><strong>Director:</strong> <%= @movie.director %></p>
+    <p><strong>Plot:</strong> <%= @movie.plot %></p>
+    <p><strong>Comment:</strong> <%= @movie.comment.presence || "No comments yet." %></p>
+    <%= link_to 'Edit Comment', edit_movie_path(@movie), class: "btn btn-warning" %>
+    <%= link_to 'Back to Favorites', movies_path, class: "btn btn-secondary" %>
+  </div>
+</div>

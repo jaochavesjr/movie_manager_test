@@ -1,0 +1,9 @@
+<h1>Edit Comment for <%= @movie.title %></h1>
+<%= form_with(model: @movie, local: true) do |form| %>
+  <div class="mb-3">
+    <%= form.label :comment, "Your Comment" %>
+    <%= form.text_area :comment, class: "form-control" %>
+  </div>
+  <%= form.submit "Save Comment", class: "btn btn-success" %>
+  <%= link_to 'Back to Favorites', movies_path, class: "btn btn-secondary" %>
+<% end %>

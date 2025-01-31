@@ -1,0 +1,26 @@
+<h1 class="mb-4">Favorite Movies</h1>
+<%= link_to 'Search Movies', search_path, class: "btn btn-primary mb-4" %>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Year</th>
+      <th>Genre</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @movies.each do |movie| %>
+      <tr>
+        <td><%= movie.title %></td>
+        <td><%= movie.year %></td>
+        <td><%= movie.genre %></td>
+        <td>
+          <%= link_to 'Details', movie_path(movie), class: "btn btn-primary btn-sm" %>
+          <%= link_to 'Edit Comment', edit_movie_path(movie), class: "btn btn-warning btn-sm" %>
+          <%= link_to 'Delete', movie_path(movie), data: { turbo_method: :delete, confirm: 'Are you sure?' }, class: "btn btn-danger btn-sm" %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
