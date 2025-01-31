@@ -5,16 +5,18 @@ services:
     build:
       context: .
     ports:
-      - "3000:3000" 
+      - "3000:3000"
     volumes:
       - ".:/app"
     environment:
-      - RAILS_ENV=development
-      - MONGODB_HOST=mongodb
-      - OMDB_API_KEY=e415e895 
-      - SECRET_KEY=4cdc1333d9ba42282bb739a5478981fe3146aaf3a92ff1789e34d5e564895ba2c447ddc787afd4ccaaa143518b433c3e4162926bd98870fdfd605b07a72cf246
+      RAILS_ENV: development
+      MONGODB_HOST: mongodb
+      OMDB_API_KEY: ${OMDB_API_KEY} 
+      SECRET_KEY: ${SECRET_KEY}
     depends_on:
       - mongodb
+    command: bash -c "rm -f tmp/pids/server.pid && bin/rails server -b 0.0.0.0 -p 3000"
+
   mongodb:
     image: mongo:latest
     container_name: mongodb

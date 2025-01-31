@@ -1,24 +1,33 @@
-# README
+# **Movie Manager**
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Uma aplicação web para gerenciar filmes favoritos, utilizando **Ruby on Rails**, **MongoDB** e integração com a **API OMDb**.
 
-Things you may want to cover:
+---
 
-* Ruby version
+## **Como Rodar o Projeto**
 
-* System dependencies
+### **1. Pré-requisitos**
+Certifique-se de ter as seguintes ferramentas instaladas:
+- **Docker** e **Docker Compose**
+- **Git**
 
-* Configuration
+### **2. Clonar o Repositório**
+Clone o repositório para sua máquina local:
+```bash
+https://github.com/jaochavesjr/movie_manager_test.git
+cd movie-manager
 
-* Database creation
+Crie um arquivo .env na raiz do projeto:
 
-* Database initialization
+Adicione as seguintes variáveis ao arquivo .env:
 
-* How to run the test suite
+OMDB_API_KEY=your_omdb_api_key_here
+SECRET_KEY=your_secret_key_here
 
-* Services (job queues, cache servers, search engines, etc.)
+Execute o comando abaixo para iniciar a aplicação:
 
-* Deployment instructions
+docker-compose up --build
 
-* ...
+Abra o navegador e acesse:
+
+http://localhost:3000
